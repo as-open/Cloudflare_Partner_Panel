@@ -3,13 +3,12 @@
  * The main file
  *
  * @file    $Source: /README.md  $
- * @package core
  * @author  ZE3kr <ze3kr@icloud.com>
  *
  */
 
 $starttime = microtime(true);
-$page_title = '';
+$page_title = 'AS Cloud CDN - Cloudflare\'s Partners';
 $version = '1.2.3';
 
 require_once 'settings.php';
@@ -22,7 +21,7 @@ if (!isset($_COOKIE['cloudflare_email']) || !isset($_COOKIE['user_api_key'])) {
 		$cloudflare_pass = $_POST['cloudflare_pass'];
 		$times = apcu_fetch('login_' . date("Y-m-d H") . $cloudflare_email);
 		if ($times > 5) {
-			$msg = '<p>' . _('You have been blocked since you have too many fail logins. You can try it in next hour.') . '</p>';
+			$msg = '<p>' . _('You have been blocked due to too many failure. You can try again in an hour.') . '</p>';
 			exit;
 		}
 		$cloudflare = new CloudFlare;
@@ -109,8 +108,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'analytics') {
 	echo '<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">';
 }
 ?>
-	<meta name="description" content="TlOxygen Cloudflare Partners">
-	<meta name="keywords" content="TlOxygen, Cloudflare">
+	<meta name="description" content="AS Cloud is one of the Cloudflare's Partners. We provide content delivery network services, DDoS mitigation, Internet security, and distributed domain name server services with Cloudflare's infrastructures. You even don't have to change your domain's NS record.">
+	<meta name="keywords" content="AS Cloud, Cloudflare, CNAME, NS">
 	<title><?php
 if (isset($_GET['action'])) {
 	if ($_GET['action'] != 'login') {
@@ -127,7 +126,7 @@ if (isset($_GET['action'])) {
 	echo _('Console') . ' | ';
 }
 
-echo _('Cloudflare CNAME/IP Advanced Setup') . ' &#8211; ' . $page_title;
+echo _('') . ' ' . $page_title;
 ?></title>
 	<meta name="renderer" content="webkit">
 	<meta http-equiv="Cache-Control" content="no-siteapp"/>
@@ -223,8 +222,9 @@ default:
 ?>
 	</main>
 	<footer class="footer">
-			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a></p>
-			<p><a href="https://github.com/ZE3kr/Cloudflare-CNAME-Setup" target="_blank"><?php echo _('View on GitHub'); ?></a></p><?php
+			<p><a href="https://support.cloudflare.com/hc" target="_blank"><?php echo _('Cloudflare Support'); ?></a> | 
+			<a href="https://github.com/as-open/Cloudflare_Partner_Panel" target="_blank"><?php echo _('View on GitHub'); ?></a> | 
+			<a href="https://io.airscr.com/legal" target="_blank"><?php echo _('AS Terms and Privacy Policy'); ?></a></p><?php
 if ((isset($is_beta) && $is_beta) || (isset($is_debug) && $is_debug)) {
 	$time = round(microtime(true) - $starttime, 3);
 	echo '<small><p>Beta Version / Load time: ' . $time . 's </p>';

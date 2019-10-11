@@ -13,8 +13,8 @@ if (isset($msg) && $msg != '') {echo '<div class="alert alert-warning" role="ale
 } ?>
 <form class="form-signin text-center" method="POST" action="">
     <h1 class="h3 mb-3 font-weight-normal"><?php echo _('Please sign in'); ?></h1>
-    <label for="inputEmail" class="sr-only"><?php echo _('Your email address on cloudflare.com'); ?></label>
-    <input type="email" name="cloudflare_email" id="inputEmail" class="form-control" placeholder="<?php echo _('Your email address on cloudflare.com'); ?>" required autofocus>
+    <label for="inputEmail" class="sr-only"><?php echo _('Email address on cloudflare.com'); ?></label>
+    <input type="email" name="cloudflare_email" id="inputEmail" class="form-control" placeholder="<?php echo _('Email address on cloudflare.com'); ?>" required autofocus>
     <label for="inputPassword" class="sr-only"><?php echo _('Your global API key on cloudflare.com'); ?></label>
     <input type="password" name="cloudflare_api" id="inputPassword" class="form-control" minlength="37" maxlength="37" pattern="[0-9a-fA-F]{37}"
 		   title="<?php echo _('Your global API key. NOT your password.');?>" placeholder="<?php echo _('Your global API key on cloudflare.com'); ?>" required>

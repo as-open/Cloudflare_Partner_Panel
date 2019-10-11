@@ -18,7 +18,9 @@ $zoneID = $_GET['zoneid'];
 <strong><?php echo '<h1 class="h5"><a href="?action=security&amp;domain=' . $zone_name . '&amp;zoneid=' . $zoneID . '">' . strtoupper($zone_name) . '</a></h1>'; ?></strong>
 <hr>
 <div class="am-scrollable-horizontal">
-	<h3 id="ssl" class="mt-5 mb-3"><?php echo _('SSL Verify'); ?></h3><?php
+	<h3 id="ssl" class="mt-5 mb-3"><?php echo _('SSL Verify'); ?></h3>
+  	<p class="alert alert-info">Set corresponding records to your domain and SSL certification will be automatically issued and renewed.</p>
+  <?php
 try {
 	$sslverify = $adapter->get('zones/' . $zoneID . '/ssl/verification?retry=true');
 	$sslverify = json_decode($sslverify->getBody(), true)['result'];
@@ -71,7 +73,7 @@ if ($sslv['certificate_status'] != 'active') {
 			}
 		} elseif ($sslv['validation_method'] == 'http') {
 			if (isset($sslv['hostname'])) {echo '<h4>' . $sslv['hostname'] . '</h4>';}
-			echo _('<p style="color:green;">No error for SSL.</p><p>Just point the record(s) to Cloudflare and the SSL certificate will be issued and renewed automatically.</p>');
+			echo _('<p class="color:green;">No error for SSL.</p>');
 		} else {
 			echo '<h4>Unknown Verification</h4><pre>';
 			print_r($sslv['verification_info']);
@@ -90,7 +92,7 @@ if ($sslv['certificate_status'] != 'active') {
 ?>
 	<h3 class="mt-5 mb-3"><?php echo _('DNSSEC <small>(Only for NS setup)</small>'); ?></h3><?php
 
-echo '<p>' . _('This feature is designed for users who use Cloudflare DNS setup. If you are using third-party DNS services, do not turn it on nor add DS record, otherwise your domain may become inaccessible.') . '</p>';
+echo '<p class = "alert alert-warning">' . _('This feature is only designed for the domain using Cloudflare DNS service. If you are not using it, do not turn it on, otherwise your domain will be inaccessible.') . '</p>';
 
 try {
 	$dnssec = $adapter->get('zones/' . $zoneID . '/dnssec');
@@ -107,6 +109,6 @@ if ($dnssec->result->status == 'active') {
 	echo '<p><a href="?action=dnssec&zoneid=' . $zoneID . '&domain=' . $zone_name . '&do=disabled">' . _('Deactivate') . '</a></p>';
 } else {
 	echo '<p style="color:red;">' . _('Not Activated') . '</p>';
-	echo '<p><a href="?action=dnssec&zoneid=' . $zoneID . '&domain=' . $zone_name . '&do=active" onclick="return confirm(\'' . _('This feature is designed for users who use Cloudflare DNS setup. If you are using third-party DNS services, do not turn it on nor add DS record, otherwise your domain may become inaccessible.') . '\')">' . _('Activate') . '</a></p>';
+	echo '<p><a href="?action=dnssec&zoneid=' . $zoneID . '&domain=' . $zone_name . '&do=active" onclick="return confirm(\'' . _('This feature is only designed for the domain using Cloudflare DNS service. If you are not using it, do not turn it on, otherwise your domain will be inaccessible.') . '\')">' . _('Activate') . '</a></p>';
 } ?>
 </div>

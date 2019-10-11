@@ -275,4 +275,4 @@ if ((isset($resp_a->answer[0]->address) && isset($resp_a->answer[1]->address)) |
 
 <hr>
 <h3 class="mt-5 mb-3"><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('More Settings'); ?></a></h3>
-<p><?php echo _('This site only provides configurations that the official does not have. For more settings, such as Page Rules, Crypto, Firewall, Cache, etc., please use the same account to login Cloudflare.com to setup. '); ?><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('More Settings'); ?></a></p>
+<p class="alert alert-primary"><?php echo _('This site only provides configurations that the official site does not support. For more settings, such as Page Rules, Crypto, Firewall, Cache, etc., please use the same account to login to '); ?><a href="https://dash.cloudflare.com/" target="_blank"><?php echo _('Cloudflare.com.'); ?></a></p>

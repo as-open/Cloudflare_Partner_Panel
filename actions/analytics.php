@@ -12,7 +12,7 @@ $date_now = new DateTime();
 
 ?>
 <strong><?php echo strtoupper($zone_name); ?></strong> / <small><?php echo _('Advanced Analytics'); ?></small><hr>
-<p id="tlorefresh" class="alert alert-primary" role="alert"><?php echo _('Loading failed. Please refresh the page to retry.'); ?></p>
+<p id="tlorefresh" class="alert alert-danger" role="alert"><?php echo _('We encountered some problem. Please try again.'); ?></p>
 <script src="js/Chart.bundle.js"></script>
 <div style="height:325px"><canvas id="requests"></canvas></div>
 <div style="height:325px"><canvas id="pageview"></canvas></div>
