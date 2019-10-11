@@ -2,13 +2,7 @@
 
 This project allows [Cloudflare Hosting Partner][1] to provide a panel for customers, which allows customers to have [CNAME setup][2] for **free**.
 
-[查看中文版本][3]
-
-[cf.tlo.xyz][4] is the site installed the stable version of this panel. The software is up-to-date, and you can trust.
-
-<blockquote>
-Notice: The Host API key of [cf.tlo.xyz][4] seems to be disabled by Cloudflare. As a result, this site lost the ability to login with Cloudflare password and adding new (CNAME setup) domains. Existing users who already have CNAME setup domains (provided by any partner), might still use this site to manage their domains’ DNS record. However, they must use global API keys instead of passwords.
-</blockquote>
+This revised version is adapted to [cdn.cloud.airscr.com][4]. You can use the installed service there. The original work is created by [ZE3kr][5]
 
 ## Installation
 
@@ -71,8 +65,8 @@ This project was based on a [HOSTLOC topic][9].
 [1]:    https://www.cloudflare.com/partners/hosting-provider/
 [2]:    https://support.cloudflare.com/hc/en-us/articles/200168706-How-do-I-do-CNAME-setup-
 [3]:    https://github.com/ZE3kr/Cloudflare-CNAME-Setup/blob/master/README.zh.md
-[4]:    https://cf.tlo.xyz
-[5]:    https://beta.cf.tlo.xyz
+[4]:    https://cdn.cloud.airscr.com
+[5]:    https://github.com/ZE3kr/Cloudflare-CNAME-Setup
 [6]:    https://github.com/ZE3kr/Cloudflare-CNAME-Setup/wiki/Installation
 [7]:    https://api.cloudflare.com/
 [8]:    https://www.cloudflare.com/ssl-for-saas-providers/
